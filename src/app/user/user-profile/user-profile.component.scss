@@ -1,0 +1,51 @@
+.profile-pic {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.profile-header {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.username {
+  font-size: 24px;
+  color: #673ab7;
+}
+
+ul {
+  list-style: none;
+  padding-left: 60px;
+  margin: 0;
+}
+
+mat-toolbar {
+  font-size: 1.1em;
+  margin: 0;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.label {
+  display: inline-block;
+  width: 95%;
+}
+
+.edit {
+  cursor: pointer;
+}
+
+.delete {
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+button {
+  margin-left: 10px;
+}
+
+.emptyBox {
+  width: 100%;
+}

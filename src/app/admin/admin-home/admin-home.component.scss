@@ -1,0 +1,41 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 200px;
+}
+
+mat-toolbar {
+  height: 40px;
+  margin-bottom: 20px;
+}
+
+.headerLeft {
+  width: 85%;
+  text-align: left;
+}
+
+.headerRight {
+  width: 15%;
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: lightgray;
+}
+
+a:hover, a:active {
+  color: darkgray;
+}
+
+.sidenav-caption {
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 450px) {
+  mat-toolbar span {
+    font-size: 12px;
+  }
+}

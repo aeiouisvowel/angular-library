@@ -1,0 +1,75 @@
+mat-accordion {
+  width: 100%;
+  height: auto;
+}
+
+mat-expansion-panel-header, mat-expansion-panel-body {
+  padding: 15px !important;
+  height: auto !important;
+}
+
+ng-star-inserted {
+  padding-left: 0 !important;
+}
+
+.book {
+  width: 100%;
+}
+
+.row {
+  margin: 5px;
+}
+
+mat-form-field {
+  padding-left: 5px;
+  width: 30px;
+}
+
+.col-md-7, .col-md-2, .col-md-3, .col-md-4, .col-lg-5 {
+  padding: 0;
+}
+
+.expansionPanel {
+  padding: 5px 5px 0;
+}
+
+.submitBtn {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px !important;
+}
+
+.rate {
+  margin-right: 15px;
+}
+
+.container {
+  padding: 0px;
+}
+
+textarea {
+  width: 98%;
+  margin-top: 5px;
+}
+
+.thumbnail {
+  height: 60px;
+  width: 60px;
+}
+
+.book-header {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.book-title {
+  font-size: 24px;
+}
+
+.label, .value {
+  display: inline-block;
+}
+
+button {
+  margin: auto 10px;
+}

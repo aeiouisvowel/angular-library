@@ -1,0 +1,18 @@
+.book-container {
+  margin-top: 20px;
+}
+
+.filterCategory, .filterData {
+  display: inline-block;
+  width: 45%;
+  padding-left: 5%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-icon {
+  padding-top: 20px;
+  cursor: pointer;
+}

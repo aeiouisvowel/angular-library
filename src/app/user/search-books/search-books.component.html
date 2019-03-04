@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+
+    <div class="filterCategory">
+      <mat-form-field>
+        <mat-select [(value)]="selected" (selectionChange)="onFilterSelected()" placeholder="Filter by">
+          <mat-option value="none">None</mat-option>
+          <mat-option value="title">Book Title</mat-option>
+          <mat-option value="author">Author</mat-option>
+          <mat-option value="category">Category</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filterData" *ngIf="needFilter">
+      <mat-form-field>
+        <input *ngIf="isTitleSelected" matInput [(ngModel)]="title">
+        <input *ngIf="isAuthorSelected" matInput [(ngModel)]="author">
+        <mat-select *ngIf="isCategorySelected" [(value)]="selectedCategory">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{category}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-icon *ngIf="needFilter" (click)="filterSelection()">search</mat-icon>
+
+  </div>
+  <div class="book-container" *ngFor="let book of bookList">
+    <app-book [bookDetails]="book"></app-book>
+  </div>
+</div>

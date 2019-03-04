@@ -1,0 +1,6 @@
+<div class="container">
+  <h2>My Books</h2>
+  <div class="book-container" *ngFor="let book of bookList">
+    <app-book [bookDetails]="book"></app-book>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="row">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <div class="book">
+          <div class="row">
+            <img class="thumbnail" src="{{bookDetails.thumbnail}}" alt="No Image">
+            <div class="book-header">
+              <span class="book-title">{{bookDetails.title}}</span>
+              <br>
+              <span>{{bookDetails.author}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">Book ID : </div>
+            <div class="value">{{ bookDetails.bookId }}</div>
+          </div>
+          <div class="row">
+            <div class="label">ISBN : </div>
+            <div class="value">{{ bookDetails.isbn10 }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Avg Rating : </div>
+            <div class="value">{{bookDetails.avgRating.rating}} ({{bookDetails.avgRating.givenBy}})</div>
+          </div>
+          <div class="row">
+            <div class="label">Genre : </div>
+            <div class="value">{{ bookDetails.genre }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Description : </div>
+            <div class="value">{{ bookDetails.description }}</div>
+          </div>
+          <div class="row">
+            <div class="label">Availability : </div>
+            <div class="value">{{ bookDetails.availability.availableBy}}</div>
+          </div>
+          <div class="row">
+            <div class="label">Current Owner : </div>
+            <div class="value">{{ bookDetails.availability.issuedTo}}</div>
+          </div>
+        </div>
+      </mat-expansion-panel-header>
+
+      <div *ngIf="isUser; else adminOptions">
+        <mat-tab-group>
+          <mat-tab label="Like and Review">
+            <div class="container">
+              <div class="row expansionPanel">
+                <div class="col-md-7">
+
+                  <textarea [(ngModel)]="comment" matAutosizeMaxRows="3" matAutosizeMinRows="3" matAutosize="true">
+
+                  </textarea>
+                </div>
+                <div class="col-md-4 submitBtn">
+                  <span class="rate">
+                        <label for="Rate">Rate: </label>
+                        <mat-form-field>
+                          <mat-select [(value)]="selectedRate">
+                            <mat-option value="1">1</mat-option>
+                            <mat-option value="2">2</mat-option>
+                            <mat-option value="3">3</mat-option>
+                            <mat-option value="4">4</mat-option>
+                            <mat-option value="5">5</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </span>
+                  <button mat-raised-button color="accent" (click)="submitReview()">submit</button>
+                </div>
+              </div>
+            </div>
+
+          </mat-tab>
+
+          <mat-tab *ngIf="!isWithUser" label="Issue" [disabled]="!availableToIssue">
+            <div class="container">
+              <div class="row expansionPanel">
+                <div class="col-md-7">
+                  Do you wish to issue this book ?
+                </div>
+                <div class="col-md-4 submitBtn">
+                  <button mat-raised-button color="accent" (click)="submitIssue()">Accept</button>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+
+
+          <mat-tab *ngIf="isWithUser" label="Renew / Return">
+            <div class="container">
+              <div class="row expansionPanel">
+                <div class="col-lg-5 submitBtn">
+                  Do you wish to renew this book ?
+                  <button mat-raised-button color="accent" (click)="submitRenew()" [disabled]="!canRenew">Accept</button>
+                </div>
+                <div class="col-lg-5 submitBtn">
+                    Do you wish to return this book ?
+                  <button mat-raised-button color="accent" (click)="submitReturn()">Return</button>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+
+
+          <mat-tab label="Recommend">
+            <div class="container">
+              <div class="row expansionPanel">
+                <div class="col-md-7">
+                  Please provide the email address:
+                  <input [(ngModel)]="friendsEmail" matInput placeholder="email address">
+                </div>
+                <div class="col-md-4 submitBtn">
+                  <button mat-raised-button color="accent" (click)="submitRecommend()">Recommend</button>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+
+        </mat-tab-group>
+      </div>
+      <ng-template #adminOptions>
+
+      </ng-template>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

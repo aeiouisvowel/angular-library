@@ -1,0 +1,64 @@
+<div class="container">
+
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="row">
+      <label>Book ID</label>
+      <mat-form-field>
+        <input matInput placeholder="" value="{{book.bookId}}" disabled>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Title</label>
+      <mat-form-field>
+        <input matInput placeholder="Book Title" class="form-control" [(ngModel)]="book.title" name="title" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Author</label>
+      <mat-form-field>
+        <input matInput placeholder="Book Author" class="form-control" [(ngModel)]="book.author" name="author" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>ISBN</label>
+      <mat-form-field>
+        <input matInput placeholder="Book ISBN" class="form-control" [(ngModel)]="book.isbn10" name="isbn10" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Genre</label>
+      <mat-form-field>
+        <input matInput placeholder="Genre" class="form-control" [(ngModel)]="book.genre" name="genre" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Thumbnail</label>
+      <mat-form-field>
+        <input matInput placeholder="Thumbnail URL" class="form-control" [(ngModel)]="book.thumbnail" name="thumbnail" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Location</label>
+      <mat-form-field>
+        <input matInput placeholder="Location in Library" class="form-control" [(ngModel)]="book.location" name="location" required>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Description</label>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" class="form-control" [(ngModel)]="book.description" name="description" required></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="row submit">
+      <button mat-raised-button color="accent" type="submit" [disabled]="!f.valid">Update</button>
+    </div>
+  </form>
+</div>

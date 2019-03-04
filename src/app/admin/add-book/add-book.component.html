@@ -1,0 +1,87 @@
+<div class="container">
+
+  <div class="searchBox">
+    <mat-form-field>
+      <input matInput placeholder="ISBN" class="form-control" [(ngModel)]="searchIsbn" name="searchIsbn">
+      <mat-icon (click)="searchByISBN()">search</mat-icon>
+    </mat-form-field>
+  </div>
+
+
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <label>Title</label>
+      <mat-form-field>
+        <input matInput placeholder="Book Title" formControlName="title" class="form-control" [(ngModel)]="book.title">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Author</label>
+      <mat-form-field>
+        <input matInput placeholder="Book Author" formControlName="author" class="form-control" [(ngModel)]="book.author">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>ISBN 10</label>
+      <mat-form-field>
+        <input matInput placeholder="Book ISBN" formControlName="isbn10" class="form-control" [(ngModel)]="book.isbn10">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>ISBN 13</label>
+      <mat-form-field>
+        <input matInput placeholder="Book ISBN" formControlName="isbn13" class="form-control" [(ngModel)]="book.isbn13">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Genre</label>
+      <mat-form-field>
+        <input matInput placeholder="Genre" formControlName="genre" class="form-control" [(ngModel)]="book.genre">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Thumbnail</label>
+      <mat-form-field>
+        <input matInput placeholder="Thumbnail URL" formControlName="thumbnail" class="form-control" [(ngModel)]="book.thumbnail">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Location</label>
+      <mat-form-field>
+        <input matInput placeholder="Location in Library" formControlName="location" class="form-control" [(ngModel)]="book.location">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Rating</label>
+      <mat-form-field>
+        <input matInput placeholder="Average Rating" formControlName="rating" class="form-control" [(ngModel)]="book.avgRating.rating">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Rating Count</label>
+      <mat-form-field>
+        <input matInput placeholder="Total Rating Count" formControlName="givenBy" class="form-control" [(ngModel)]="book.avgRating.givenBy">
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <label>Description</label>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="description" class="form-control" [(ngModel)]="book.description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="row submit">
+      <button mat-raised-button color="accent" [disabled]="!addBookForm.valid" type="submit">Add</button>
+    </div>
+  </form>
+
+</div>

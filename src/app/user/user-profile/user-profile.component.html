@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <img class="profile-pic" src="{{currUser.profilePic}}" alt="No Image">
+    <div class="profile-header">
+      <span class="username">{{currUser.name}}</span>
+      <br>
+      <span>{{ currUser.email }} ({{ currUser.role }})</span>
+    </div>
+  </div>
+  <div class="row">
+    <mat-toolbar>Books In Hand</mat-toolbar>
+    <ul>
+      <li>{{noOfBooksInHand}}</li>
+    </ul>
+  </div>
+  <div class="row">
+    <mat-toolbar>Recommended Books</mat-toolbar>
+    <ul>
+      <li *ngFor="let recommend of currUser.recommends">{{recommend}}</li>
+      <div *ngIf="ifNoRecommends">
+        Your friends have not yet recommended any book for you.
+      </div>
+    </ul>
+  </div>
+  <div class="row">
+    <mat-toolbar>
+      <div class="label">My Favourite Categories</div>
+      <mat-icon *ngIf="!editFavCategories" class="edit" (click)="enableEditFavCategories()">edit</mat-icon>
+      <mat-icon *ngIf="editFavCategories" class="edit" (click)="disableEditFavCategories()">done</mat-icon>
+    </mat-toolbar>
+    <div class="emptyBox" *ngIf="ifNoFavCategory">
+      You have not defined your favourite categories. Please add your favourite categories to help us better serve you.
+    </div>
+    <ul>
+      <li *ngFor="let fav of currUser.favCategories">
+        {{fav}}
+        <mat-icon *ngIf="editFavCategories" color="warn" class="delete" (click)="deleteFavCategories(fav)">delete_sweep</mat-icon>
+      </li>
+      <li *ngIf="editFavCategories">
+        <mat-form-field>
+          <input matInput placeholder="add category" [(ngModel)]="newCategory">
+        </mat-form-field>
+        <button color="primary" mat-raised-button (click)="addFavCategory()">Add</button>
+      </li>
+    </ul>
+  </div>
+  <div class="row">
+    <mat-toolbar>
+      <div class="label">My Friends</div>
+      <mat-icon *ngIf="!editFriends" class="edit" (click)="enableEditFriends()">edit</mat-icon>
+      <mat-icon *ngIf="editFriends" class="edit" (click)="disableEditFriends()">done</mat-icon>
+    </mat-toolbar>
+    <div class="emptyBox" *ngIf="ifNoFriends">
+      You have not added your friends. Please add friends to unleash the happiness of reading together :)
+    </div>
+    <ul>
+      <li *ngFor="let friend of currUser.friends">
+        {{friend}}
+        <mat-icon *ngIf="editFriends" color="warn" class="delete" (click)="deleteFriend(friend)">delete_sweep</mat-icon>
+      </li>
+      <li *ngIf="editFriends">
+        <mat-form-field>
+          <input matInput placeholder="add friend's email" [(ngModel)]="newFriend">
+        </mat-form-field>
+        <button color="primary" mat-raised-button (click)="addFriend()">Add</button>
+      </li>
+    </ul>
+  </div>
+
+</div>

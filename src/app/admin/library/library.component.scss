@@ -1,0 +1,31 @@
+table {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+mat-form-field, mat-paginator, mat-slide-toggle {
+  width: 90% !important;
+  margin: 5px 5%;
+}
+
+.action {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 5px 10px !important;
+  }
+}

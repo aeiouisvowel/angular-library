@@ -1,0 +1,40 @@
+form, .searchBox {
+  max-width: 700px;
+  margin: 5px auto;
+}
+
+label {
+  padding-top: 20px;
+  width: 30%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+mat-form-field {
+  width: 65%;
+  padding-right: 5px;
+}
+
+.submit {
+  text-align: right;
+  padding-right: 5%;
+  display: block;
+}
+
+mat-icon {
+  float: right;
+  cursor: pointer;
+}
+
+.searchBox mat-form-field{
+  width: 100%;
+  margin: 5px auto;
+}
+
+.searchBox input {
+  width: 90%;
+}
+
+input {
+  color: black;
+}

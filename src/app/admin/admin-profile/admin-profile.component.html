@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <img class="profile-pic" src="{{currUser.profilePic}}" alt="No Image">
+    <div class="profile-header">
+      <span class="username">{{currUser.name}}</span>
+      <br>
+      <span>{{ currUser.email }} ({{ currUser.role }})</span>
+    </div>
+  </div>
+
+  <div class="row actions">
+    <div class="action">
+      <a mat-list-item routerLink="add-book">
+      <button mat-raised-button color="accent">
+          <mat-icon class="animated infinite bounceIn">arrow_forward_ios</mat-icon>
+          Add Book
+        </button>
+        </a>
+    </div>
+    <div class="action">
+      <a mat-list-item routerLink="all-books">
+      <button mat-raised-button color="accent">
+          <mat-icon class="animated infinite bounceIn">arrow_forward_ios</mat-icon>
+          Check Library
+        </button>
+        </a>
+    </div>
+  </div>
+
+</div>

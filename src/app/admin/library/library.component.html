@@ -1,0 +1,52 @@
+<div>
+
+  <mat-slide-toggle color="accent" (change)="displayBorrowedBookChange($event)">
+    Only show borrowed books
+  </mat-slide-toggle>
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="/admin/edit-book/{{element.bookId}}">
+          <mat-icon color="primary" class="action">border_color</mat-icon>
+        </a>
+        <mat-icon color="warn" class="action" (click)="deleteBook(element.bookId)">delete_forever</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="bookId">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.bookId | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="author">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
+      <td mat-cell *matCellDef="let element"> {{element.author}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="issuedTo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Borrowed by </th>
+      <td mat-cell *matCellDef="let element"> {{element.issuedTo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="issuedDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Issued on </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.issuedDate | date}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
